@@ -16,9 +16,15 @@
 
             <label for="valueInput">Enter a value (1-15):</label>
             <div class="controls">
-                <input type="number" id="valueInput" min="1" max="15" step="1" />
-                <button id="addBtn" type="button">Add</button>
-                <button id="resetBtn" type="button">Reset</button>
+                <div class="row input-row">
+                    <input type="number" id="valueInput" min="1" max="15" step="1" />
+                </div>
+                <div class="row add-row">
+                    <button id="addBtn" type="button">Add</button>
+                </div>
+                <div class="row reset-row">
+                    <button id="resetBtn" type="button">Reset</button>
+                </div>
             </div>
 
             <div id="result">Total: 0</div>

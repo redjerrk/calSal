@@ -1,10 +1,9 @@
-// Running total shown on the page
+
 let total = 0;
 
-// Mapping from input to increment value
+
 function mapInputToIncrement(n) {
-    // Defined mapping per requirement:
-    // 2 -> 2, 3 -> 2.5, 4 -> 3.5, 5 -> 4, 6 -> 5
+
     const map = {
         1: 1,
         2: 2,
@@ -24,7 +23,7 @@ function mapInputToIncrement(n) {
 }
 
 function formatNumber(n) {
-    // Show integers without decimals, else up to 2 decimals
+
     if (Number.isInteger(n)) return String(n);
     return (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, '');
 }
@@ -68,12 +67,12 @@ function addValue() {
         return;
     }
 
-    total = Math.round((total + increment) * 100) / 100; // keep 2 decimal precision
+    total = Math.round((total + increment) * 100) / 100;
     updateUI();
     showMessage(`Added ${formatNumber(increment)}.`);
     appendHistory(`${formatNumber(increment)} added (input ${n}) — total ${formatNumber(total)}`);
 
-    // clear input for convenience
+
     inputEl.value = '';
     inputEl.focus();
 }
@@ -93,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addBtn) addBtn.addEventListener('click', addValue);
     if (resetBtn) resetBtn.addEventListener('click', resetAll);
 
-    // Support Enter key to submit
+ 
     if (input) {
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
