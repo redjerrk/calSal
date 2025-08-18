@@ -1,9 +1,9 @@
 :root {
     --bg: #f2f6fb;
     --card: #ffffff;
-    --accent: #0b76ef;
+    --accent: rgb(74, 157, 74);
     --muted: #6b7280;
-    --danger: #e11d48;
+    --danger: #4f2f36;
     --radius: 12px;
     --shadow: 0 6px 24px rgba(11, 118, 239, 0.08);
 }
@@ -13,21 +13,19 @@ body {
     height: 100%;
     margin: 0;
     background: linear-gradient(180deg, #05305c 0%, var(--bg) 100%);
-    /* Prevent the browser-level scrollbar for this single-page app. */
-    overflow: hidden;
+    overflow: hidden; 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial;
     color: #111827;
 }
 
 .page {
-    /* Fill the viewport and handle any internal scrolling here. */
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
-    overflow: auto;
+    overflow: auto; 
     -webkit-overflow-scrolling: touch;
 }
 
@@ -84,6 +82,7 @@ input[type="number"]:focus {
     box-shadow: 0 6px 18px rgba(11, 118, 239, 0.08);
 }
 
+
 button {
     background: var(--accent);
     color: white;
@@ -100,7 +99,7 @@ button[type="button"]:hover {
 }
 
 #resetBtn {
-    background: red;
+    background: rgb(232, 18, 18);
     color: white;
     box-shadow: none;
     border: 1px solid #e5e7eb;
@@ -132,31 +131,48 @@ button[type="button"]:hover {
     color: var(--muted);
     text-align: center;
 }
-#history {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
 
-#clearHistoryBtn{
+#clearHistoryBtn {
     font-size:0.8em;
     margin-left:8px;
     background: grey;
-    
 }
+
+#history {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.04); 
+    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    max-height: 180px;
+    overflow: auto;
+}
+
 #history li {
-    background: #fbfdff;
-    border: 1px solid #eef3ff;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.06);
     padding: 8px 10px;
     border-radius: 8px;
     font-size: 0.95rem;
     color: #111827;
 }
 
-/* Responsive adjustments */
+#history::-webkit-scrollbar {
+    width: 8px;
+}
+#history::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+}
+#history::-webkit-scrollbar-thumb {
+    background: rgba(2, 6, 23, 0.06);
+    border-radius: 8px;
+}
+
 @media (max-width: 480px) {
     .card {
         padding: 16px;
