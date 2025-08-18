@@ -13,17 +13,22 @@ body {
     height: 100%;
     margin: 0;
     background: linear-gradient(180deg, #05305c 0%, var(--bg) 100%);
+    /* Prevent the browser-level scrollbar for this single-page app. */
+    overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial;
     color: #111827;
 }
 
 .page {
-    min-height: 100vh;
+    /* Fill the viewport and handle any internal scrolling here. */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .card {
@@ -41,17 +46,23 @@ h1 {
     letter-spacing: -0.2px;
 }
 
-.controls{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    align-items:center;
-    margin-top:12px;
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 12px;
 }
 
-.controls .row{ width:100%; display:flex; justify-content:center; }
+.controls .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-.input-row input[type="number"]{ width:160px; }
+.input-row input[type="number"] {
+    width: 160px;
+}
 
 label {
     font-size: 0.95rem;
@@ -90,7 +101,7 @@ button[type="button"]:hover {
 
 #resetBtn {
     background: red;
-    color: whit;
+    color: white;
     box-shadow: none;
     border: 1px solid #e5e7eb;
 }
@@ -129,6 +140,13 @@ button[type="button"]:hover {
     flex-direction: column;
     gap: 6px;
 }
+
+#clearHistoryBtn{
+    font-size:0.8em;
+    margin-left:8px;
+    background: grey;
+    
+}
 #history li {
     background: #fbfdff;
     border: 1px solid #eef3ff;
@@ -144,7 +162,9 @@ button[type="button"]:hover {
         padding: 16px;
         border-radius: 14px;
     }
-    .controls { gap: 6px; }
+    .controls {
+        gap: 6px;
+    }
     input[type="number"] {
         width: 100%;
         flex: 1 1 auto;

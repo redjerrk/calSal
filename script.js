@@ -15,7 +15,10 @@ function mapInputToIncrement(n) {
         8: 7,
         9: 8,
         10: 9,
+        11: 9.5,
         12: 10,
+        13: 10.5,
+        14: 11,
         15: 12
     };
 
@@ -45,6 +48,13 @@ function appendHistory(entry) {
     const li = document.createElement('li');
     li.textContent = entry;
     list.insertBefore(li, list.firstChild);
+}
+
+function clearHistory() {
+    const list = document.getElementById('history');
+    if (!list) return;
+    list.innerHTML = '';
+    showMessage('History cleared.');
 }
 
 function addValue() {
@@ -91,8 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('resetBtn');
     if (addBtn) addBtn.addEventListener('click', addValue);
     if (resetBtn) resetBtn.addEventListener('click', resetAll);
+    const clearBtn = document.getElementById('clearHistoryBtn');
+    if (clearBtn) clearBtn.addEventListener('click', clearHistory);
 
- 
+
     if (input) {
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
