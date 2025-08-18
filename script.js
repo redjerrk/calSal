@@ -48,6 +48,7 @@ function appendHistory(entry) {
     const li = document.createElement('li');
     li.textContent = entry;
     list.insertBefore(li, list.firstChild);
+    toggleClearButton();
 }
 
 function clearHistory() {
@@ -55,6 +56,7 @@ function clearHistory() {
     if (!list) return;
     list.innerHTML = '';
     showMessage('History cleared.');
+    toggleClearButton();
 }
 
 function addValue() {
@@ -93,6 +95,15 @@ function resetAll() {
     showMessage('All values reset.');
     const list = document.getElementById('history');
     if (list) list.innerHTML = '';
+    toggleClearButton();
+}
+
+function toggleClearButton() {
+    const list = document.getElementById('history');
+    const btn = document.getElementById('clearHistoryBtn');
+    if (!btn) return;
+    const hasItems = list && list.children.length > 0;
+    btn.style.display = hasItems ? '' : 'none';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -115,4 +126,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateUI();
+    toggleClearButton();
 });
